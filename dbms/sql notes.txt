@@ -1,0 +1,73 @@
+group by :
+
+select *, count(country) from customers group by country having count(country) <=1
+
+
+joins :
+
+--- Inner join : ---
+
+- show how many orders all customers done
+
+SELECT first_name, last_name, item, amount
+FROM customers as c
+INNER JOIN orders as o ON customers.customer_id = orders.customer_id;
+aliase
+
+--- outer join ---
+--- left join ---
+
+SELECT first_name, last_name, item, amount
+FROM customers as c
+LEFT JOIN orders as o ON customers.customer_id = orders.customer_id;
+
+
+--- right join ---
+
+SELECT first_name, last_name, item, amount
+FROM customers as c
+RIGHT JOIN orders as o ON customers.customer_id = orders.customer_id;
+
+
+--- full join ---
+
+SELECT first_name, last_name, item, amount
+FROM customers as c
+LEFT JOIN orders as o ON customers.customer_id = orders.customer_id
+
+UNION
+
+SELECT first_name, last_name, item, amount
+FROM customers as c
+RIGHT JOIN orders as o ON customers.customer_id = orders.customer_id;
+
+
+SET :
+
+we need same no. of column and datatype and order of column must be same.
+
+--- union ---
+
+select * from test1 union select * from test2
+
+--- intersect ---
+
+should match values from all column
+
+select * from test1 intersect select * from test2
+
+--- minus ---
+
+we get the value like left join but after removing remaining intersection values
+
+select id, test1.name from test1 left join test2 using(id)
+
+
+
+
+
+
+
+
+
+
